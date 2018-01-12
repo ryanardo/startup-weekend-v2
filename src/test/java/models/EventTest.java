@@ -31,4 +31,10 @@ public class EventTest {
         Event testEvent = new Event("event-a","description-a");
         assertEquals("event-a", testEvent.getEventTitle());
     }
+
+    @Test
+    public void testEvent_getEventDesccription() {
+        Event testEvent = new Event("event-a","description-a");
+        assertEquals("description-a", testEvent.getEventDescription());
+    }
 }
