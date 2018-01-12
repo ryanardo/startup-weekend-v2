@@ -21,8 +21,14 @@ public class EventTest {
     }
 
     @Test
-    public void newEvent_instantiatesCorrectly() throws Exception {
-        Event testEvent = new Event();
+    public void testEvent_instantiatesCorrectly() throws Exception {
+        Event testEvent = new Event("event-a","description-a");
         assertEquals(true, testEvent instanceof Event);
+    }
+
+    @Test
+    public void testEvent_getEventTitle() {
+        Event testEvent = new Event("event-a","description-a");
+        assertEquals("event-a", testEvent.getEventTitle());
     }
 }
