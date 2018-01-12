@@ -24,4 +24,8 @@ public class Event {
     public String getEventTitle() {
         return eventTitle;
     }
+
+    public String getEventDescription() {
+        return eventDescription;
+    }
 } // End of 'Event.java'
