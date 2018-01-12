@@ -20,4 +20,8 @@ public class Event {
         instances.add(this);
         this.id =  instances.size();
     }
+
+    public String getEventTitle() {
+        return eventTitle;
+    }
 } // End of 'Event.java'
