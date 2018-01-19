@@ -11,15 +11,18 @@ public class Event {
     private String eventTitle;
     private String eventDescription;
     private LocalDateTime createdAt;
-    private int id;
+    private int idEvent;
 
     public Event(String eventTitle, String eventDescription) {
         this.eventTitle = eventTitle;
         this.eventDescription = eventDescription;
         this.createdAt = LocalDateTime.now();
-        this.attendees = new ArrayList<Attendee>();
         instances.add(this);
-        this.id = instances.size();
+        this.idEvent = instances.size();
+    }
+    //GETTERS
+    public ArrayList<Attendee> getAttendees() {
+        return attendees;
     }
 
     public static ArrayList<Event> getInstances() {
@@ -38,7 +41,12 @@ public class Event {
         return createdAt;
     }
 
-    public int getId() {
-        return id;
+    public int getIdEvent() {
+        return idEvent;
+    }
+
+    //INSTANCE METHODS
+    public void addAttendee(Attendee attendee) {
+        attendees.add(attendee);
     }
 } // End of 'Event.java'
