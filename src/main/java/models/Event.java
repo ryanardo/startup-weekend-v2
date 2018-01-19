@@ -49,4 +49,11 @@ public class Event {
     public void addAttendee(Attendee attendee) {
         attendees.add(attendee);
     }
+
+    //STATIC METHODS
+    public static Event findEvent(int idEvent) {
+        return events.get(idEvent-1);
+    }
+
 } // End of 'Event.java'
+

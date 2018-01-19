@@ -30,12 +30,18 @@ public class App {
     //POST: CREATE EVENT PAGE
     post("/events/create", (request, response) -> {
         Map<String, Object> model = new HashMap<>();
-
         String newEventTitle = request.queryParams("eventTitle");
         String newEventDescription = request.queryParams("eventDescription");
         Event newEvent = new Event(newEventTitle, newEventDescription);
-
         return new ModelAndView(model, "event-form.hbs");
+    }, new HandlebarsTemplateEngine());
+
+    //GET: EVENT DETAILS
+    get("/events/:idEvent", (request, response) -> {
+        Map<String, Object> model = new HashMap<>();
+        int idOfEvent = Integer.parseInt(request.queryParams("idEvent"));
+        Event selectedEvent = Event.findEvent(idOfEvent);
+        return new ModelAndView(model, "event-details.hbs");
     }, new HandlebarsTemplateEngine());
 
     } //PSVM
