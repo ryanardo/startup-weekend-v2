@@ -1,22 +1,5 @@
 {{#partial "content"}}
 
-    {{#if editEvent}}
-        <h1>Edit this Post!</h1>
-        <form action="/posts/{{editEvent.id}}/update" method="post">
-            <label for="content">Edit this post's content</label>
-            <input id="content" name="content" type="text" value="{{editPost.content}}">
-
-    {{else}}
-        <h2>Create an Event!</h2>
-        <form action="/events/new" method="POST">
-            <label for="eventTitle">Event Title</label>
-            <input id="eventTitle" name="eventTitle" type="text">
-            <label for="eventDescription">Event Description</label>
-            <input id="eventDescription" name="eventDescription" type="text">
-
-    {{/if}}
-        <button type="submit" class="btn btn-default">Go!</button>
-    </form>
 {{/partial}}
 
 {{> layout.hbs}}

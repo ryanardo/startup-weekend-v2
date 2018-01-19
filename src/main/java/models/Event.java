@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Event {
 
     private ArrayList<Attendee> attendees = new ArrayList<Attendee>();
-    private static ArrayList<Event> instances = new ArrayList<>();
+    private static ArrayList<Event> events = new ArrayList<>();
     private String eventTitle;
     private String eventDescription;
     private LocalDateTime createdAt;
@@ -17,16 +17,16 @@ public class Event {
         this.eventTitle = eventTitle;
         this.eventDescription = eventDescription;
         this.createdAt = LocalDateTime.now();
-        instances.add(this);
-        this.idEvent = instances.size();
+        events.add(this);
+        this.idEvent = events.size();
     }
     //GETTERS
     public ArrayList<Attendee> getAttendees() {
         return attendees;
     }
 
-    public static ArrayList<Event> getInstances() {
-        return instances;
+    public static ArrayList<Event> getEvents() {
+        return events;
     }
 
     public String getEventTitle() {
