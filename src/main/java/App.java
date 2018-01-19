@@ -26,6 +26,7 @@ public class App {
     //GET: CREATE EVENT PAGE
     get("/events/create", (request, response) -> {
         Map<String, Object> model = new HashMap<>();
+        /*LOGIC_FOR_GET_AND_POST*/
         return new ModelAndView(model, "event-form.hbs");
     }, new HandlebarsTemplateEngine());
 
@@ -45,6 +46,17 @@ public class App {
         Event selectedEvent = Event.findEvent(selectedEventId);
         model.put("event", selectedEvent);
         return new ModelAndView(model, "event-details.hbs");
+    }, new HandlebarsTemplateEngine());
+
+    //POST: ADD NEW ATTENDEES
+    post("/events/:idEvent/attendee/new", (request, response) -> {
+        Map<String, Object> model = new HashMap<>();
+        String newAttendeeName = request.queryParams("attendee-name");
+        Attendee attendee = new Attendee(newAttendeeName);
+        Integer idEventAttending = Integer.parseInt(request.params("idEvent"));
+        Event eventAttending = Event.findEvent(idEventAttending);
+        eventAttending.addAttendee(attendee);
+        return new ModelAndView(model, "index.hbs");
     }, new HandlebarsTemplateEngine());
 
     } //PSVM
