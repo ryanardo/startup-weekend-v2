@@ -1,15 +1,15 @@
 {{#partial "content"}}
 
     <h2>{{event.eventTitle}}</h2>
-    <h3>{{event.eventDescription}}</h3>
+    <p>{{event.eventDescription}}</p>
     <br>
 
-    <h4>ATTENDEES</h4>
+    <h3>ATTENDEES:</h3>
     {{#each event.attendees}}
         <p>{{this.attendeeName}}</p>
     {{/each}}
 
-        <h5>Add new attendee:</h5>
+        <p>Add new attendee:</p>
         <form action="/events/{{event.idEvent}}/attendee/new" method="post">
 
             <label for="attendee-name">Name:</label>
@@ -20,7 +20,7 @@
         </form>
 
         <br>
-        <a href="/events/{{event.idEvent}}/attendee/new">EDIT EVENT</a>
+        <a href="/events/{{event.idEvent}}/update">EDIT EVENT</a>
         <br>
         <a href="/"><button class="btn btn-default"><</button></a>
 

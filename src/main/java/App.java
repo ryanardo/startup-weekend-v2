@@ -59,5 +59,16 @@ public class App {
         return new ModelAndView(model, "index.hbs");
     }, new HandlebarsTemplateEngine());
 
+    //GET: UPDATE EVENT DETAILS
+    get("/events/:idEvent/update", (request, response) -> {
+        Map<String, Object> model = new HashMap<>();
+
+        Integer idEventToUpdate = Integer.parseInt(request.params("idEvent"));
+        Event updateEvent = Event.findEvent(idEventToUpdate);
+
+        model.put("updateEvent", updateEvent);
+        return new ModelAndView(model, "event-form.hbs");
+    }, new HandlebarsTemplateEngine());
+
     } //PSVM
 } //APP
