@@ -13,19 +13,30 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
 
-        //HOME PAGE
-        get("/", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            ArrayList<Event> events = Event.getEvents();
-            model.put("events", events);
-            return new ModelAndView(model, "index.hbs");
-        }, new HandlebarsTemplateEngine());
+    //HOME PAGE
+    get("/", (request, response) -> {
+        Map<String, Object> model = new HashMap<>();
+        ArrayList<Event> events = Event.getEvents();
+        model.put("events", events);
+        return new ModelAndView(model, "index.hbs");
+    }, new HandlebarsTemplateEngine());
 
-        //CREATE EVENT PAGE
-        get("/events/create", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "event-form.hbs");
-        }, new HandlebarsTemplateEngine());
+    //GET: CREATE EVENT PAGE
+    get("/events/create", (request, response) -> {
+        Map<String, Object> model = new HashMap<>();
+        return new ModelAndView(model, "event-form.hbs");
+    }, new HandlebarsTemplateEngine());
+
+    //POST: CREATE EVENT PAGE
+    post("/events/create", (request, response) -> {
+        Map<String, Object> model = new HashMap<>();
+
+        String newEventTitle = request.queryParams("eventTitle");
+        String newEventDescription = request.queryParams("eventDescription");
+        Event newEvent = new Event(newEventTitle, newEventDescription);
+
+        return new ModelAndView(model, "event-form.hbs");
+    }, new HandlebarsTemplateEngine());
 
     } //PSVM
 } //APP
