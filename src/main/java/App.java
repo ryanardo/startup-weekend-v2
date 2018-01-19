@@ -1,6 +1,8 @@
 import jdk.internal.org.objectweb.asm.Handle;
 import models.*;
 import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.util.ArrayList;
@@ -37,10 +39,11 @@ public class App {
     }, new HandlebarsTemplateEngine());
 
     //GET: EVENT DETAILS
-    get("/events/:idEvent", (request, response) -> {
+    get("/events/:idEvent", (Request request, Response response) -> {
         Map<String, Object> model = new HashMap<>();
-        int idOfEvent = Integer.parseInt(request.queryParams("idEvent"));
-        Event selectedEvent = Event.findEvent(idOfEvent);
+        Integer selectedEventId = Integer.parseInt(request.params("idEvent"));
+        Event selectedEvent = Event.findEvent(selectedEventId);
+        model.put("event", selectedEvent);
         return new ModelAndView(model, "event-details.hbs");
     }, new HandlebarsTemplateEngine());
 

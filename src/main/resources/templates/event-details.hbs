@@ -1,7 +1,28 @@
 {{#partial "content"}}
+
     <h2>{{event.eventTitle}}</h2>
+    <h3>{{event.eventDescription}}</h3>
+    <br>
 
+    <h4>Attendees:</h4>
+    {{#each event.attendees}}
+        <p>{{this}}</p>
+    {{/each}}
 
+        <h5>Add New Attendee:</h5>
+        <form action="/events/{{event.idEvent}}/attendee/new" method="post">
+
+            <label for="attendeeName">Name of the Attendee:</label>
+            <input id="attendeeName" name="attendeeName" type="text">
+            <br>
+
+            <button class="btn btn-default" type="submit">ADD ATTENDEE</button>
+
+        </form>
+        <br>
+        <a href="/events/{{event.idEvent}}/update">EDIT EVENT</a>
+        <br>
+        <a href="/"><button class="btn btn-default"><</button></a>
 
 {{/partial}}
 {{> layout.hbs}}
