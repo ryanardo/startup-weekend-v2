@@ -33,8 +33,8 @@ public class App {
     //POST: CREATE EVENT PAGE
     post("/events/create", (request, response) -> {
         Map<String, Object> model = new HashMap<>();
-        String newEventTitle = request.queryParams("eventTitle");
-        String newEventDescription = request.queryParams("eventDescription");
+        String newEventTitle = request.queryParams("event-title");
+        String newEventDescription = request.queryParams("event-description");
         Event newEvent = new Event(newEventTitle, newEventDescription);
         return new ModelAndView(model, "event-form.hbs");
     }, new HandlebarsTemplateEngine());
@@ -51,11 +51,13 @@ public class App {
     //POST: ADD NEW ATTENDEES
     post("/events/:idEvent/attendee/new", (request, response) -> {
         Map<String, Object> model = new HashMap<>();
+
         String newAttendeeName = request.queryParams("attendee-name");
         Attendee attendee = new Attendee(newAttendeeName);
         Integer idEventAttending = Integer.parseInt(request.params("idEvent"));
         Event eventAttending = Event.findEvent(idEventAttending);
         eventAttending.addAttendee(attendee);
+
         return new ModelAndView(model, "index.hbs");
     }, new HandlebarsTemplateEngine());
 
@@ -68,6 +70,20 @@ public class App {
 
         model.put("updateEvent", updateEvent);
         return new ModelAndView(model, "event-form.hbs");
+    }, new HandlebarsTemplateEngine());
+
+    //POST: POST UPDATED EVENT DETAILS
+    post("/events/:idEvent/update", (request, response) -> {
+        Map<String, Object> model = new HashMap<>();
+
+        String updatedEventTitle = request.queryParams("event-title");
+        String updatedEventDescription = request.queryParams("event-description");
+        Integer idEventUpdated = Integer.parseInt(request.params("idEvent"));
+        Event eventToUpdate = Event.findEvent(idEventUpdated);
+        eventToUpdate.editEventTitle(updatedEventTitle);
+        eventToUpdate.editEventDescription(updatedEventDescription);
+
+        return new ModelAndView(model, "index.hbs");
     }, new HandlebarsTemplateEngine());
 
     } //PSVM

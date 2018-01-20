@@ -50,6 +50,14 @@ public class Event {
         attendees.add(attendee);
     }
 
+    public void editEventTitle(String updatedEventTitle) {
+        this.eventTitle = updatedEventTitle;
+    }
+
+    public void editEventDescription(String updatedEventDescription) {
+        this.eventDescription = updatedEventDescription;
+    }
+
     //STATIC METHODS
     public static Event findEvent(int idEvent) {
         return events.get(idEvent-1);
