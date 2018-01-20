@@ -63,5 +63,5 @@ public class Event {
         return events.get(idEvent-1);
     }
 
-} // End of 'Event.java'
+}
 
