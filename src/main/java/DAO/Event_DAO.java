@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface Event_DAO {
 
+    Event createEvent();
     List<Event> getAllEvents();
     Event findByIdEvent(int id);
     void updateEvent(int id, String comment);
