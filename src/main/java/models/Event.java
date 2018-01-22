@@ -20,6 +20,7 @@ public class Event {
         events.add(this);
         this.idEvent = events.size();
     }
+
     //GETTERS
     public ArrayList<Attendee> getAttendees() {
         return attendees;
