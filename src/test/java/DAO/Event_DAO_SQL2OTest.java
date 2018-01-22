@@ -1,28 +1,26 @@
 package DAO;
 
-import models.*;
+import models.Event;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-
-import static org.junit.Assert.*;
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class Event_DAO_SQL2OTest {
 
-    private Event_DAO_SQL2O location_DAO;
-    private Attendee_DAO_SQL2O review_DAO;
+    private Event_DAO_SQL2O event_DAO;
+    private Attendee_DAO_SQL2O attendee_DAO;
     private Connection conn;
 
     @Before
     public void setUp() throws Exception {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
-        location_DAO = new Event_DAO_SQL2O(sql2o);
-        review_DAO = new Attendee_DAO_SQL2O(sql2o);
+        event_DAO = new Event_DAO_SQL2O(sql2o);
+        attendee_DAO = new Attendee_DAO_SQL2O(sql2o);
         conn = sql2o.open();
     }
 
@@ -32,7 +30,14 @@ public class Event_DAO_SQL2OTest {
     }
 
     @Test
-    public void createEvent_true() throws Exception {
+    public void addEvent_CreatesInstance_true() throws Exception {
+        /***********************************************************
+         *** WHAT IS THE DIFFERENCE BETWEEN 'INT' AND 'INTEGER'? ***
+         ***********************************************************/
+        Event event1 = new Event("title1", "description1");
+        int originalIdEvent1 = event1.getIdEvent();
+        event_DAO.addEvent(event1);
+        assertNotEquals(originalIdEvent1, event1.getIdEvent());
     }
 
     @Test
