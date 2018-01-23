@@ -31,9 +31,6 @@ public class Event_DAO_SQL2OTest {
 
     @Test
     public void addEvent_CreatesInstance_true() throws Exception {
-        /***********************************************************
-         *** WHAT IS THE DIFFERENCE BETWEEN 'INT' AND 'INTEGER'? ***
-         ***********************************************************/
         Event event1 = new Event("title1", "description1");
         int originalIdEvent1 = event1.getIdEvent();
         event_DAO.addEvent(event1);
@@ -42,22 +39,27 @@ public class Event_DAO_SQL2OTest {
 
     @Test
     public void getAllEvents() throws Exception {
+        return null;
     }
 
     @Test
     public void findByIdEvent() throws Exception {
+        return null;
     }
 
     @Test
     public void updateEvent() throws Exception {
+        return null;
     }
 
     @Test
     public void deleteByIdEvent() throws Exception {
+        return null;
     }
 
     @Test
     public void clearAllEvents() throws Exception {
+        return null;
     }
 
 } /*END: Event_DAO_SQL2OTest*/

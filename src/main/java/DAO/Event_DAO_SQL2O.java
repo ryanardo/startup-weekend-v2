@@ -10,7 +10,6 @@ import java.util.List;
 public class Event_DAO_SQL2O implements Event_DAO {
 
     private final Sql2o sql2o;
-
     public Event_DAO_SQL2O(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
