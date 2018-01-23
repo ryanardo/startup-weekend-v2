@@ -30,7 +30,11 @@ public class Event_DAO_SQL2O implements Event_DAO {
 
     @Override
     public List<Event> getAllEvents() {
-        return null;
+        String sql = "SELECT * FROM events";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .executeAndFetch(Event.class);
+        }
     }
 
     @Override
@@ -40,16 +44,13 @@ public class Event_DAO_SQL2O implements Event_DAO {
 
     @Override
     public void updateEvent(int id, String eventTitle, String eventDescription) {
-
     }
 
     @Override
     public void deleteByIdEvent(int id) {
-
     }
 
     @Override
     public void clearAllEvents() {
-
     }
 } /*END: Event_DAO_SQL2O*/
