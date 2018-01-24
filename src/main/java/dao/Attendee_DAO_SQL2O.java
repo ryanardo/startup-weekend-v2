@@ -1,9 +1,8 @@
-package DAO;
+package dao;
 
-import models.*;
-import org.sql2o.Connection;
+import models.Attendee;
+import models.Event;
 import org.sql2o.Sql2o;
-import org.sql2o.Sql2oException;
 
 import java.util.List;
 

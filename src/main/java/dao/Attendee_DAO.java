@@ -1,6 +1,8 @@
-package DAO;
+package dao;
 
-import models.*;
+import models.Attendee;
+import models.Event;
+
 import java.util.List;
 
 public interface Attendee_DAO {

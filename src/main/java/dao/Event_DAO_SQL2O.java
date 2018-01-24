@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import models.Event;
 import org.sql2o.Connection;
@@ -63,7 +63,15 @@ public class Event_DAO_SQL2O implements Event_DAO {
 
 
     @Override
-    public void deleteByIdEvent(int id) {
+    public void deleteByIdEvent(int idEvent) {
+        String sql = "DELETE FROM events WHERE idEvent = :idEvent";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("idEvent", idEvent)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override

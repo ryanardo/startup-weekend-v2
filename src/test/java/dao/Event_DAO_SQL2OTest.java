@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import models.Event;
 import org.junit.After;
@@ -44,7 +44,7 @@ public class Event_DAO_SQL2OTest {
         Event event1 = new Event("title1", "description1");
         event_DAO.addEvent(event1);
 
-        Event event2 = new Event("title1", "description2");
+        Event event2 = new Event("title2", "description2");
         event_DAO.addEvent(event2);
 
         assertEquals(2, event_DAO.getAllEvents().size());
@@ -55,7 +55,7 @@ public class Event_DAO_SQL2OTest {
         Event event1 = new Event("title1", "description1");
         event_DAO.addEvent(event1);
 
-        Event event2 = new Event("title1", "description2");
+        Event event2 = new Event("title2", "description2");
         event_DAO.addEvent(event2);
 
         assertEquals(2, event_DAO.findByIdEvent(event2.getIdEvent()).getIdEvent());
@@ -68,7 +68,7 @@ public class Event_DAO_SQL2OTest {
         int idEvent1 = event1.getIdEvent();
         event_DAO.updateEvent(idEvent1, "title1.1", "description1.1");
 
-        Event event2 = new Event("title1", "description2");
+        Event event2 = new Event("title2", "description2");
         event_DAO.addEvent(event2);
 
         assertEquals("title1.1", event_DAO.findByIdEvent(idEvent1).getEventTitle());
@@ -76,7 +76,17 @@ public class Event_DAO_SQL2OTest {
 
     @Test
     public void deleteByIdEvent() throws Exception {
+        Event event1 = new Event("title1", "description1");
+        event_DAO.addEvent(event1);
+        int idEvent1 = event1.getIdEvent();
 
+        Event event2 = new Event("title2", "description2");
+        event_DAO.addEvent(event2);
+        int idEvent2 = event2.getIdEvent();
+
+        event_DAO.deleteByIdEvent(idEvent2);
+
+        assertEquals(1, event_DAO.getAllEvents().size());
     }
 
     @Test

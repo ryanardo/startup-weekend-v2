@@ -1,10 +1,8 @@
-package DAO;
+package dao;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by Guest on 1/21/18.
