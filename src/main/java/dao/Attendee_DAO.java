@@ -1,7 +1,6 @@
 package dao;
 
 import models.Attendee;
-import models.Event;
 
 import java.util.List;
 
@@ -9,7 +8,6 @@ public interface Attendee_DAO {
 
     //CREATE
     void addAttendee(Attendee attendee);
-
 
     //REVIEW
     Attendee findByIdAttendee(int idAttendee);

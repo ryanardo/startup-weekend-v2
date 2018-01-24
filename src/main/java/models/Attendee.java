@@ -28,6 +28,10 @@ public class Attendee {
         return idAttendee;
     }
 
+    public int getEventId() {
+        return eventId;
+    }
+
     //SETTER
     public static void setEvents(ArrayList<Event> events) {
         Attendee.events = events;
