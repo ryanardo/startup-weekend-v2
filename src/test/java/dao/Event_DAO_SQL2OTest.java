@@ -1,6 +1,6 @@
 package dao;
 
-import models.Event;
+import models.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,12 +31,11 @@ public class Event_DAO_SQL2OTest {
     }
 
     @Test
-    public void addEvent_CreatesInstance_true() throws Exception {
+    public void addEvent() throws Exception {
         Event event1 = new Event("title1", "description1");
         event_DAO.addEvent(event1);
 
-        int originalIdEvent1 = event1.getIdEvent();
-        assertNotEquals(originalIdEvent1, event1.getIdEvent());
+        assertEquals(1, event1.getIdEvent());
     }
 
     @Test

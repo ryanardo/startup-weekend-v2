@@ -1,40 +1,42 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Attendee {
 
     private static ArrayList<Event> events = new ArrayList<>();
     private String attendeeName;
-    private Integer idAttendee;
+    private int idAttendee;
 
+    //CONSTRUCTOR
     public Attendee(String attendeeName) {
         this.attendeeName = attendeeName;
     }
 
+    //GETTER
     public static ArrayList<Event> getEvents() {
         return events;
     }
 
-    public static void setEvents(ArrayList<Event> events) {
-        Attendee.events = events;
-    }
-
-    //GETTER
     public String getAttendeeName() {
         return attendeeName;
     }
 
+    public int getIdAttendee() {
+        return idAttendee;
+    }
+
     //SETTER
+    public static void setEvents(ArrayList<Event> events) {
+        Attendee.events = events;
+    }
+
     public void setAttendeeName(String attendeeName) {
         this.attendeeName = attendeeName;
     }
 
-    public Integer getIdAttendee() {
-        return idAttendee;
-    }
-
-    public void setIdAttendee(Integer idAttendee) {
+    public void setIdAttendee(int idAttendee) {
         this.idAttendee = idAttendee;
     }
 
@@ -43,17 +45,14 @@ public class Attendee {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Attendee attendee = (Attendee) o;
-
-        if (!attendeeName.equals(attendee.attendeeName)) return false;
-        return idAttendee != null ? idAttendee.equals(attendee.idAttendee) : attendee.idAttendee == null;
+        return Objects.equals(attendeeName, attendee.attendeeName) &&
+                Objects.equals(idAttendee, attendee.idAttendee);
     }
 
     @Override
     public int hashCode() {
-        int result = attendeeName.hashCode();
-        result = 31 * result + (idAttendee != null ? idAttendee.hashCode() : 0);
-        return result;
+
+        return Objects.hash(attendeeName, idAttendee);
     }
 }

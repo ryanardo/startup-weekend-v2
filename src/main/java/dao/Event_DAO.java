@@ -8,7 +8,7 @@ public interface Event_DAO {
 
     void addEvent(Event event);
     List<Event> getAllEvents();
-    Event findByIdEvent(int idEventv);
+    Event findByIdEvent(int idEvent);
 
     void updateEvent(int idEvent, String eventTitle, String eventDescription);
     void deleteByIdEvent(int idEvent);

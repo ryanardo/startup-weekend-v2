@@ -7,10 +7,19 @@ import java.util.List;
 
 public interface Attendee_DAO {
 
+    //CREATE
+    void addAttendee(Attendee attendee);
+
+
+    //REVIEW
+    Event findByIdAttendee(int idAttendee);
     List<Attendee> getAllAttendees();
-    Event findByIdAttendee(int id);
-    void updateAttendee(int id, String comment);
-    void deleteByIdAttendee(int id);
+
+    //UPDATE
+    void updateAttendee(int idAttendee, String comment);
+
+    //DELETE
+    void deleteByIdAttendee(int idAttendee);
     void clearAllAttendees();
 
 }

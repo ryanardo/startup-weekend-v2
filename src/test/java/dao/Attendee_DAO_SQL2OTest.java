@@ -1,10 +1,14 @@
 package dao;
 
+import models.Attendee;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class Attendee_DAO_SQL2OTest {
 
@@ -27,23 +31,30 @@ public class Attendee_DAO_SQL2OTest {
     }
 
     @Test
-    public void getAllAttendees() throws Exception {
+    public void addAttendee() {
+        Attendee attendee1 = new Attendee("Spongebob Square Pants");
+        attendee_DAO.addAttendee(attendee1);
+
+        assertEquals(1, attendee1.getIdAttendee());
     }
 
     @Test
-    public void findByIdAttendee() throws Exception {
+    public void findByIdAttendee() {
     }
 
     @Test
-    public void updateAttendee() throws Exception {
+    public void getAllAttendees() {
     }
 
     @Test
-    public void deleteByIdAttendee() throws Exception {
+    public void updateAttendee() {
     }
 
     @Test
-    public void clearAllAttendees() throws Exception {
+    public void deleteByIdAttendee() {
     }
 
+    @Test
+    public void clearAllAttendees() {
+    }
 }
