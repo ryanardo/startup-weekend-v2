@@ -38,8 +38,13 @@ public class Event_DAO_SQL2O implements Event_DAO {
     }
 
     @Override
-    public Event findByIdEvent(int id) {
-        return null;
+    public Event findByIdEvent(int idEvent) {
+        String sql = "SELECT * FROM events WHERE idEvent = :idEvent";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("idEvent", idEvent)
+                    .executeAndFetchFirst(Event.class);
+        }
     }
 
     @Override

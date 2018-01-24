@@ -52,6 +52,13 @@ public class Event_DAO_SQL2OTest {
 
     @Test
     public void findByIdEvent() throws Exception {
+        Event event1 = new Event("title1", "description1");
+        event_DAO.addEvent(event1);
+
+        Event event2 = new Event("title1", "description2");
+        event_DAO.addEvent(event2);
+
+        assertEquals(2, event_DAO.findByIdEvent(event2.getIdEvent()).getIdEvent());
     }
 
     @Test
