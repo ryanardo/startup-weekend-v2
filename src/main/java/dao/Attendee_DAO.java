@@ -12,7 +12,7 @@ public interface Attendee_DAO {
 
 
     //REVIEW
-    Event findByIdAttendee(int idAttendee);
+    Attendee findByIdAttendee(int idAttendee);
     List<Attendee> getAllAttendees();
 
     //UPDATE

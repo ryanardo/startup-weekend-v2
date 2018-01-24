@@ -8,6 +8,7 @@ public class Attendee {
     private static ArrayList<Event> events = new ArrayList<>();
     private String attendeeName;
     private int idAttendee;
+    private int eventId;
 
     //CONSTRUCTOR
     public Attendee(String attendeeName) {

@@ -8,6 +8,6 @@ CREATE TABLE IF NOT EXISTS events (
 
 CREATE TABLE IF NOT EXISTS attendees (
     idAttendee INT PRIMARY KEY auto_increment,
-    idEvent INTEGER,
+    eventId INTEGER,
     attendeeName VARCHAR
 );

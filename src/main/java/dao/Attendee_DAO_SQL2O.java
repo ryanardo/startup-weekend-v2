@@ -1,6 +1,7 @@
 package dao;
 
 import models.Attendee;
+//import models.Event;
 import models.Event;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -30,8 +31,13 @@ public class Attendee_DAO_SQL2O implements Attendee_DAO {
     }
 
     @Override
-    public Event findByIdAttendee(int idAttendee) {
-        return null;
+    public Attendee findByIdAttendee(int idAttendee) {
+        String sql = "SELECT * FROM attendees WHERE idAttendee = :idAttendee";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("idAttendee", idAttendee)
+                    .executeAndFetchFirst(Attendee.class);
+        }
     }
 
     @Override

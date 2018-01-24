@@ -6,12 +6,17 @@ import java.util.List;
 
 public interface Event_DAO {
 
+    //CREATE
     void addEvent(Event event);
-    List<Event> getAllEvents();
-    Event findByIdEvent(int idEvent);
 
+    //REVIEW
+    Event findByIdEvent(int idEvent);
+    List<Event> getAllEvents();
+
+    //UPDATE
     void updateEvent(int idEvent, String eventTitle, String eventDescription);
+
+    //DELETE
     void deleteByIdEvent(int idEvent);
     void clearAllEvents();
-
 }
