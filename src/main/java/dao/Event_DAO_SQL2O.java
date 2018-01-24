@@ -76,5 +76,13 @@ public class Event_DAO_SQL2O implements Event_DAO {
 
     @Override
     public void clearAllEvents() {
+        String sql = "DELETE FROM events";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
+
 } /*END: Event_DAO_SQL2O*/

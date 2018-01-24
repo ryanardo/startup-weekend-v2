@@ -91,7 +91,17 @@ public class Event_DAO_SQL2OTest {
 
     @Test
     public void clearAllEvents() throws Exception {
+        Event event1 = new Event("title1", "description1");
+        event_DAO.addEvent(event1);
+        int idEvent1 = event1.getIdEvent();
 
+        Event event2 = new Event("title2", "description2");
+        event_DAO.addEvent(event2);
+        int idEvent2 = event2.getIdEvent();
+
+        event_DAO.clearAllEvents();
+
+        assertEquals(0, event_DAO.getAllEvents().size());
     }
 
 } /*END: Event_DAO_SQL2OTest*/
