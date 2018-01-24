@@ -50,8 +50,16 @@ public class Attendee_DAO_SQL2O implements Attendee_DAO {
     }
 
     @Override
-    public void updateAttendee(int idAttendee, String comment) {
-
+    public void updateAttendee(int idAttendee, String attendeeName) {
+        String sql = "UPDATE attendees SET attendeeName = :attendeeName WHERE idAttendee = :idAttendee";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("attendeeName", attendeeName)
+                    .addParameter("idAttendee", idAttendee)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override

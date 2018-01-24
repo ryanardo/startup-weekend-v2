@@ -62,6 +62,13 @@ public class Attendee_DAO_SQL2OTest {
 
     @Test
     public void updateAttendee() {
+        Attendee attendee1 = new Attendee("Spongebob Square Pants");
+        attendee_DAO.addAttendee(attendee1);
+
+        int idAttendee1 = attendee1.getIdAttendee();
+        attendee_DAO.updateAttendee(idAttendee1, "Spongebob");
+
+        assertEquals("Spongebob", attendee_DAO.findByIdAttendee(idAttendee1).getAttendeeName());
     }
 
     @Test

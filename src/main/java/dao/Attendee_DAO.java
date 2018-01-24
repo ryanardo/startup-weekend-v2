@@ -16,7 +16,7 @@ public interface Attendee_DAO {
     List<Attendee> getAllAttendees();
 
     //UPDATE
-    void updateAttendee(int idAttendee, String comment);
+    void updateAttendee(int idAttendee, String attendeeName);
 
     //DELETE
     void deleteByIdAttendee(int idAttendee);
