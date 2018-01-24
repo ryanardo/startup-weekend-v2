@@ -11,8 +11,9 @@ public class Attendee {
     private int eventId;
 
     //CONSTRUCTOR
-    public Attendee(String attendeeName) {
+    public Attendee(String attendeeName, int eventId) {
         this.attendeeName = attendeeName;
+        this.eventId = eventId;
     }
 
     //GETTER
@@ -45,19 +46,25 @@ public class Attendee {
         this.idAttendee = idAttendee;
     }
 
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
+    }
+
     //EQUALS HASH CODE
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Attendee attendee = (Attendee) o;
-        return Objects.equals(attendeeName, attendee.attendeeName) &&
-                Objects.equals(idAttendee, attendee.idAttendee);
+        return idAttendee == attendee.idAttendee &&
+                eventId == attendee.eventId &&
+                Objects.equals(attendeeName, attendee.attendeeName);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(attendeeName, idAttendee);
+        return Objects.hash(attendeeName, idAttendee, eventId);
     }
 }

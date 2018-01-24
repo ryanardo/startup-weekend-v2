@@ -8,7 +8,6 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 public class Attendee_DAO_SQL2OTest {
 
@@ -32,7 +31,7 @@ public class Attendee_DAO_SQL2OTest {
 
     @Test
     public void addAttendee() {
-        Attendee attendee1 = new Attendee("Spongebob Square Pants");
+        Attendee attendee1 = new Attendee("Spongebob Square Pants", 1);
         attendee_DAO.addAttendee(attendee1);
 
         assertEquals(1, attendee1.getIdAttendee());
@@ -40,10 +39,10 @@ public class Attendee_DAO_SQL2OTest {
 
     @Test
     public void findByIdAttendee() {
-        Attendee attendee1 = new Attendee("Spongebob Square Pants");
+        Attendee attendee1 = new Attendee("Spongebob Square Pants", 1);
         attendee_DAO.addAttendee(attendee1);
 
-        Attendee attendee2 = new Attendee("Patrick Star");
+        Attendee attendee2 = new Attendee("Patrick Star", 1);
         attendee_DAO.addAttendee(attendee2);
 
         assertEquals(2, attendee_DAO.findByIdAttendee(attendee2.getIdAttendee()).getIdAttendee());
@@ -51,10 +50,10 @@ public class Attendee_DAO_SQL2OTest {
 
     @Test
     public void getAllAttendees() {
-        Attendee attendee1 = new Attendee("Spongebob Square Pants");
+        Attendee attendee1 = new Attendee("Spongebob Square Pants", 1);
         attendee_DAO.addAttendee(attendee1);
 
-        Attendee attendee2 = new Attendee("Patrick Star");
+        Attendee attendee2 = new Attendee("Patrick Star", 1);
         attendee_DAO.addAttendee(attendee2);
 
         assertEquals(2, attendee_DAO.getAllAttendees().size());
@@ -62,7 +61,7 @@ public class Attendee_DAO_SQL2OTest {
 
     @Test
     public void updateAttendee() {
-        Attendee attendee1 = new Attendee("Spongebob Square Pants");
+        Attendee attendee1 = new Attendee("Spongebob Square Pants", 1);
         attendee_DAO.addAttendee(attendee1);
 
         int idAttendee1 = attendee1.getIdAttendee();
@@ -73,10 +72,10 @@ public class Attendee_DAO_SQL2OTest {
 
     @Test
     public void deleteByIdAttendee() {
-        Attendee attendee1 = new Attendee("Spongebob Square Pants");
+        Attendee attendee1 = new Attendee("Spongebob Square Pants", 1);
         attendee_DAO.addAttendee(attendee1);
 
-        Attendee attendee2 = new Attendee("Patrick Star");
+        Attendee attendee2 = new Attendee("Patrick Star", 1);
         attendee_DAO.addAttendee(attendee2);
 
         int idAttendee2 = attendee2.getIdAttendee();
@@ -87,10 +86,10 @@ public class Attendee_DAO_SQL2OTest {
 
     @Test
     public void clearAllAttendees() {
-        Attendee attendee1 = new Attendee("Spongebob Square Pants");
+        Attendee attendee1 = new Attendee("Spongebob Square Pants", 1);
         attendee_DAO.addAttendee(attendee1);
 
-        Attendee attendee2 = new Attendee("Patrick Star");
+        Attendee attendee2 = new Attendee("Patrick Star", 1);
         attendee_DAO.addAttendee(attendee2);
 
         attendee_DAO.clearAllAttendees();

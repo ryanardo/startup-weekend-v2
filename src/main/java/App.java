@@ -79,13 +79,11 @@ public class App {
         post("/events/:idEvent/attendee/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
 
+            int idEventAttending = Integer.parseInt(request.params("idEvent"));
             String newAttendeeName = request.queryParams("attendee-name");
-            Attendee newAttendee = new Attendee(newAttendeeName);
-            attendeeDao.addAttendee(newAttendee);
 
-            Integer idEventAttending = Integer.parseInt(request.params("idEvent"));
-            Event eventAttending = Event.findEvent(idEventAttending);
-            eventAttending.addAttendee(newAttendee);
+            Attendee newAttendee = new Attendee(newAttendeeName, idEventAttending);
+            attendeeDao.addAttendee(newAttendee);
 
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
@@ -93,9 +91,13 @@ public class App {
         //POST: CREATE EVENT PAGE
         post("/events/create", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+
             String newEventTitle = request.queryParams("event-title");
             String newEventDescription = request.queryParams("event-description");
             Event newEvent = new Event(newEventTitle, newEventDescription);
+
+            eventDao.addEvent(newEvent);
+
             return new ModelAndView(model, "event-form.hbs");
         }, new HandlebarsTemplateEngine());
 
