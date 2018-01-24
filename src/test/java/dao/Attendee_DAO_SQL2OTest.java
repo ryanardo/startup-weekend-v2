@@ -87,5 +87,14 @@ public class Attendee_DAO_SQL2OTest {
 
     @Test
     public void clearAllAttendees() {
+        Attendee attendee1 = new Attendee("Spongebob Square Pants");
+        attendee_DAO.addAttendee(attendee1);
+
+        Attendee attendee2 = new Attendee("Patrick Star");
+        attendee_DAO.addAttendee(attendee2);
+
+        attendee_DAO.clearAllAttendees();
+
+        assertEquals(0, attendee_DAO.getAllAttendees().size());
     }
 }

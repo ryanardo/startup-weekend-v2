@@ -76,6 +76,12 @@ public class Attendee_DAO_SQL2O implements Attendee_DAO {
 
     @Override
     public void clearAllAttendees() {
-
+        String sql = "DELETE FROM attendees";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 }
