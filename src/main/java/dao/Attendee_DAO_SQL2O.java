@@ -42,7 +42,11 @@ public class Attendee_DAO_SQL2O implements Attendee_DAO {
 
     @Override
     public List<Attendee> getAllAttendees() {
-        return null;
+        String sql = "SELECT * FROM attendees";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .executeAndFetch(Attendee.class);
+        }
     }
 
     @Override

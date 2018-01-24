@@ -51,6 +51,13 @@ public class Attendee_DAO_SQL2OTest {
 
     @Test
     public void getAllAttendees() {
+        Attendee attendee1 = new Attendee("Spongebob Square Pants");
+        attendee_DAO.addAttendee(attendee1);
+
+        Attendee attendee2 = new Attendee("Patrick Star");
+        attendee_DAO.addAttendee(attendee2);
+
+        assertEquals(2, attendee_DAO.getAllAttendees().size());
     }
 
     @Test
