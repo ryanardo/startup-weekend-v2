@@ -48,8 +48,19 @@ public class Event_DAO_SQL2O implements Event_DAO {
     }
 
     @Override
-    public void updateEvent(int id, String eventTitle, String eventDescription) {
+    public void updateEvent(int idEvent, String eventTitle, String eventDescription) {
+        String sql = "UPDATE events SET eventTitle = :eventTitle, eventDescription = :eventDescription WHERE idEvent = :idEvent";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                .addParameter("eventTitle", eventTitle)
+                .addParameter("eventDescription", eventDescription)
+                .addParameter("idEvent", idEvent)
+                .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
+
 
     @Override
     public void deleteByIdEvent(int id) {

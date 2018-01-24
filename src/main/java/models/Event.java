@@ -12,6 +12,7 @@ public class Event {
     private LocalDateTime createdAt;
     private int idEvent;
 
+    //CONSTRUCTOR
     public Event(String eventTitle, String eventDescription) {
         this.eventTitle = eventTitle;
         this.eventDescription = eventDescription;
