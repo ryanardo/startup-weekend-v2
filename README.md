@@ -1,32 +1,17 @@
-# STARTUP WEEKEND
+# STARTUP WEEKEND EVENT SCHEDULER
 
-#### _Weekend Startup Event Schedule_
+#### _ Weekend event planner for a VERY simple startup. _
 
 By **Ryan G Ferris**
 
 ## DESCRIPTION
 
-Events, along with their descriptions and attendees.
-
-## SPECS
-
-| Behavior | Input | Output |
-| :------------- | :------------- | :------------- |
-| Behavior_1 | Input_1 | Output_1 |
-| Behavior_2 | Input_2 | Output_2 |
-| Behavior_3 | Input_3 | Output_3 |
-| Behavior_4 | Input_4 | Output_4 |
-| Behavior_5 | Input_5 | Output_5 |
-| Behavior_6 | Input_6 | Output_6 |
-| Behavior_7 | Input_7 | Output_7 |
-| Behavior_8 | Input_8 | Output_8 |
-| Behavior_9 | Input_9 | Output_9 |
-| Behavior_10 | Input_10 | Output_10 |
+_This is a WebApp made to display one-to-many relationships between user created Events & Attendees._
 
 ## SETUP/INSTALLATION REQUIREMENTS
 
 * Download and install an up to date web browser
-* Click on the following [link](GitHub_Repository_Link) to use the PROGRAM_TITLE
+* Click on the following [link](https://github.com/ryanglenferris/startup-weekend-v2.git) to use the Startup Weekend Event Scheduler.
 
 ## KNOWN BUGS
 
@@ -39,9 +24,9 @@ _Email me at [ryanglenferris@gmail.com](mailto:ryanglenferris@gmail.com) if you 
 ## TECHNOLOGIES USED
 
 * _Java_
-* _Handlebars_
-* _Spark_
 * _HTML_
+* _CSS_
+* _Bootstrap_
 * _Git_
 * _GitHub_
 
