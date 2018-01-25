@@ -10,6 +10,7 @@ import java.util.List;
 public class Event_DAO_SQL2O implements Event_DAO {
 
     private final Sql2o sql2o;
+
     public Event_DAO_SQL2O(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
@@ -38,6 +39,16 @@ public class Event_DAO_SQL2O implements Event_DAO {
     }
 
     @Override
+    public List<Attendee> getAllAttendeesByEvent(int eventId) {
+        String sql = "SELECT * FROM attendees WHERE eventId = :eventId";
+        try (Connection con = sql2o.open()){
+            return con.createQuery(sql)
+                    .addParameter("eventId", eventId)
+                    .executeAndFetch(Attendee.class);
+        }
+    }
+
+    @Override
     public Event findByIdEvent(int idEvent) {
         String sql = "SELECT * FROM events WHERE idEvent = :idEvent";
         try (Connection con = sql2o.open()) {
@@ -60,7 +71,6 @@ public class Event_DAO_SQL2O implements Event_DAO {
             System.out.println(ex);
         }
     }
-
 
     @Override
     public void deleteByIdEvent(int idEvent) {

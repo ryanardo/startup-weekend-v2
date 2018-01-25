@@ -1,13 +1,13 @@
 package dao;
 
 import models.Attendee;
-//import models.Event;
-import models.Event;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
 import java.util.List;
+
+//import models.Event;
 
 public class Attendee_DAO_SQL2O implements Attendee_DAO {
 
@@ -18,7 +18,7 @@ public class Attendee_DAO_SQL2O implements Attendee_DAO {
 
     @Override
     public void addAttendee(Attendee attendee) {
-        String sql = "INSERT INTO attendees (attendeeName) VALUES (:attendeeName)";
+        String sql = "INSERT INTO attendees (attendeeName, eventId) VALUES (:attendeeName, :eventId)";
         try (Connection con = sql2o.open()) {
             int idAttendee = (int) con.createQuery(sql)
                     .bind(attendee)

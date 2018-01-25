@@ -52,10 +52,10 @@ public class EventTest {
     @Test
     public void addAttendee() throws Exception {
         Event testEvent = new Event("Title-1.0", "Description-1.0");
-        Attendee attendee1 = new Attendee("attendee1");
-        Attendee attendee2 = new Attendee("attendee2");
-        Attendee attendee3 = new Attendee("attendee3");
-        Attendee attendee4 = new Attendee("attendee4");
+        Attendee attendee1 = new Attendee("attendee1", 1);
+        Attendee attendee2 = new Attendee("attendee2", 1);
+        Attendee attendee3 = new Attendee("attendee3", 1);
+        Attendee attendee4 = new Attendee("attendee4", 1);
         testEvent.addAttendee(attendee1);
         testEvent.addAttendee(attendee2);
         testEvent.addAttendee(attendee3);

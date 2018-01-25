@@ -12,6 +12,7 @@ public interface Attendee_DAO {
     //REVIEW
     Attendee findByIdAttendee(int idAttendee);
     List<Attendee> getAllAttendees();
+//    List<Attendee> getAllAttendeesByEvent(int eventId);
 
     //UPDATE
     void updateAttendee(int idAttendee, String attendeeName);
@@ -19,5 +20,4 @@ public interface Attendee_DAO {
     //DELETE
     void deleteByIdAttendee(int idAttendee);
     void clearAllAttendees();
-
 }
