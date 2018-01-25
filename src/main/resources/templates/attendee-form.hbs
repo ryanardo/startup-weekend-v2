@@ -1,7 +1,6 @@
 {{#partial "content"}}
 
     {{#if editAttendee}}
-        <h1>update/edit attendee-form.hbs</h1>
         <h1>EDIT ATTENDEE</h1>
 
         <form action="/events/{{editAttendee.eventId}}/attendees/{{editAttendee.idAttendee}}/new" method="post">
@@ -12,7 +11,6 @@
         </form>
 
     {{else}}
-        <h1>add attendee-form.hbs</h1>
         <h1>ADD ATTENDEE</h1>
 
         <form action="/events/{{event.idEvent}}/attendee/new" method="post">

@@ -1,12 +1,11 @@
 {{#partial "content"}}
-<h2>index.hbs</h2>
-
     {{#if events}}
 
         {{#each events}}
             <h2>{{eventTitle}}</h2>
             <p>{{eventDescription}}</p>
             <p><a href="/events/{{idEvent}}">EVENT DETAILS</a></p>
+            <p><a href="/events/{{idEvent}}/delete">DELETE EVENT</a></p>
         {{/each}}
 
     {{else}}

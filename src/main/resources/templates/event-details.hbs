@@ -1,6 +1,4 @@
 {{#partial "content"}}
-<h2>event-details.hbs</h2>
-
     <h2>{{event.eventTitle}}</h2>
     <p>{{event.eventDescription}}</p>
     <a href="/"><button class="btn btn-default"><a href="/events/{{event.idEvent}}/update">EDIT EVENT</a></button></a>
@@ -18,6 +16,7 @@
     {{#each attendees}}
         <p>{{attendeeName}}</p>
         <p><a href="/events/{{event.idEvent}}/attendees/{{idAttendee}}/new">EDIT</a></p>
+        <p><a href="/events/{{event.idEvent}}/attendees/{{idAttendee}}/delete">DELETE</a></p>
     {{/each}}
 
 {{/partial}}
