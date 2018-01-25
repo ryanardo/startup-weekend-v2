@@ -1,19 +1,20 @@
 {{#partial "content"}}
+<h2>event-details.hbs</h2>
 
-    <h2>{{selectedEvent.eventTitle}}</h2>
-    <p>{{selectedEvent.eventDescription}}</p>
+    <h2>{{event.eventTitle}}</h2>
+    <p>{{event.eventDescription}}</p>
     <br>
 
     <h3>ATTENDEES:</h3>
 
     {{#if attendees}}
         {{#each attendees}}
-            <p>{{this.attendeeName}}</p>
+            <p>{{attendeeName}}</p>
         {{/each}}
     {{/if}}
 
         <p>Add new attendee:</p>
-        <form action="/events/{{selectedEvent.idEvent}}/attendee/new" method="post">
+        <form action="/events/{{event.idEvent}}/attendee/new" method="post">
 
             <label for="attendee-name">Name:</label>
             <input id="attendee-name" name="attendee-name" type="text" value="">
@@ -23,9 +24,9 @@
         </form>
 
         <br>
-        <!--<a href="/events/{{event.idEvent}}/update">EDIT EVENT</a>-->
-        <!--<br>-->
-        <!--<a href="/"><button class="btn btn-default"><</button></a>-->
+        <a href="/events/{{event.idEvent}}/update">EDIT EVENT</a>
+        <br>
+        <a href="/"><button class="btn btn-default"><</button></a>
 
 {{/partial}}
 {{> layout.hbs}}
