@@ -1,0 +1,31 @@
+{{#partial "content"}}
+    {{#if updateEvent}}
+        <form actions="/events/{{updateEvent.idEvent}}/update" method="post">
+
+            <label for="event-title">Title of the Event :</label>
+            <input id="event-title" name="event-title" type="text" value="{{updateEvent.eventTitle}}">
+            <br>
+            <label for="event-description">Description of the Event:</label>
+            <input id="event-description" name="event-description" type="text" value="{{updateEvent.eventDescription}}">
+            <br>
+            <button type="submit" class="btn btn-default">UPDATE EVENT</button>
+
+        </form>
+    {{else}}
+
+        <form actions="/events/new" method="post">
+
+            <label for="event-title">Title of the Event:</label>
+            <input id="event-title" name="event-title" type="text" value="">
+            <br>
+            <label for="event-description">Description of the Event:</label>
+            <input id="event-description" name="event-description" type="text" value="">
+            <br>
+            <button type="submit" class="btn btn-default">CREATE EVENT</button>
+
+        </form>
+
+    {{/if}}
+
+{{/partial}}
+{{> layout.hbs}}

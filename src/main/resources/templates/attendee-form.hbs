@@ -1,0 +1,47 @@
+{{#partial "content"}}
+    <!--<h2>attendee-form.hbs</h2>-->
+
+    <!--<h2>{{attendee.attendeeName}}</h2>-->
+    <!--<br>-->
+    <!---->
+    <!---->
+
+        <!--<p>Add new attendee:</p>-->
+        <!--<form action="/events/{{event.idEvent}}/attendee/new" method="post">-->
+        <!--<label for="attendee-name">Name:</label>-->
+        <!--<input id="attendee-name" name="attendee-name" type="text" value="">-->
+        <!--<br>-->
+
+
+    <!--<button class="btn btn-default" type="submit">ADD ATTENDEE</button>-->
+    <!--</form>-->
+
+    <!--<br>-->
+    <!--<a href="/events/{{event.idEvent}}/update">EDIT EVENT</a>-->
+    <!--<br>-->
+    <!--<a href="/"><button class="btn btn-default"><</button></a>-->
+
+    <!--#############################################################################################################-->
+
+    {{#if editAttendee}}
+
+        <h1>EDIT ATTENDEE</h1>
+        <form action="/posts/{{editPost.id}}/update" method="post">
+            <label for="updatedAttendeeName">NAME:</label>
+            <input id="updatedAttendeeName" name="updatedAttendeeName" type="text" value="{{editAttendee.attendeeName}}">
+        </form>
+
+    {{else}}
+
+        <h1>ADD ATTENDEE</h1>
+        <form action="/events/{{event.idEvent}}/attendee/new" method="post">
+            <label for="attendee-name">Name:</label>
+            <input id="attendee-name" name="attendee-name" type="text" value="">
+            <br>
+        </form>
+
+    {{/if}}
+        <button type="submit" class="btn btn-default">SUBMIT</button>
+
+{{/partial}}
+{{> layout.hbs}}

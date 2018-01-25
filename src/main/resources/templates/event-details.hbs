@@ -10,6 +10,13 @@
     {{#if attendees}}
         {{#each attendees}}
             <p>{{attendeeName}}</p>
+
+            <!--UPDATE ATTENDEE ROUTE 1-->
+            <p><a href="/events/{{event.idEvent}}/attendees/{{idAttendee}}/update">Edit Attendee</a></p>
+
+            <!--UPDATE ATTENDEE ROUTE 2-->
+            <!--<p><a href="/attendees/update">Edit Attendee</a></p>-->
+
         {{/each}}
     {{/if}}
 
