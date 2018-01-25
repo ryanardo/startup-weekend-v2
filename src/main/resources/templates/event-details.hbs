@@ -3,37 +3,22 @@
 
     <h2>{{event.eventTitle}}</h2>
     <p>{{event.eventDescription}}</p>
+    <a href="/"><button class="btn btn-default"><a href="/events/{{event.idEvent}}/update">EDIT EVENT</a></button></a>
     <br>
 
-    <h3>ATTENDEES:</h3>
-
-    {{#if attendees}}
-        {{#each attendees}}
-            <p>{{attendeeName}}</p>
-
-            <!--UPDATE ATTENDEE ROUTE 1-->
-            <p><a href="/events/{{event.idEvent}}/attendees/{{idAttendee}}/update">Edit Attendee</a></p>
-
-            <!--UPDATE ATTENDEE ROUTE 2-->
-            <!--<p><a href="/attendees/update">Edit Attendee</a></p>-->
-
-        {{/each}}
-    {{/if}}
-
-        <p>Add new attendee:</p>
-        <form action="/events/{{event.idEvent}}/attendee/new" method="post">
-
-            <label for="attendee-name">Name:</label>
-            <input id="attendee-name" name="attendee-name" type="text" value="">
-            <br>
-
-            <button class="btn btn-default" type="submit">ADD ATTENDEE</button>
-        </form>
-
+    <h3>ADD ATTENDEE</h3>
+    <br>
+    <form action="/events/{{event.idEvent}}/attendees/new" method="post">
+        <label for="attendee-name">Name:</label>
+        <input id="attendee-name" name="attendee-name" type="text" value="">
         <br>
-        <a href="/events/{{event.idEvent}}/update">EDIT EVENT</a>
-        <br>
-        <a href="/"><button class="btn btn-default"><</button></a>
+        <button class="btn btn-default" type="submit">ADD ATTENDEE</button>
+    </form>
+
+    {{#each attendees}}
+        <p>{{attendeeName}}</p>
+        <p><a href="/events/{{event.idEvent}}/attendees/{{idAttendee}}/new">EDIT</a></p>
+    {{/each}}
 
 {{/partial}}
 {{> layout.hbs}}
