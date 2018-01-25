@@ -1,6 +1,6 @@
 # STARTUP WEEKEND EVENT SCHEDULER
 
-#### _ Weekend event planner for a VERY simple startup. _
+#### Weekend event planner for a _VERY_ simple startup.
 
 By **Ryan G Ferris**
 
